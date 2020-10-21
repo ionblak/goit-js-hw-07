@@ -5,6 +5,5 @@ const textRef = document.querySelector("#text");
 inputFontSizeControlRef.addEventListener("input", chengeFont);
 
 function chengeFont(event) {
-  const value = Number(event.target.value);
-  textRef.style.fontSize = value + "px";
+  textRef.style.fontSize = Number(event.target.value) + "px";
 }
