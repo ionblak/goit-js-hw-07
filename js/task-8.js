@@ -14,11 +14,11 @@ function createBoxes(amount) {
 
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement("div");
-    size += 10;
     boxesRef.appendChild(box);
+    box.style.backgroundColor = randColor();
+    size += 10;
     box.style.width = size + "px";
     box.style.height = size + "px";
-    box.style.backgroundColor = randColor();
   }
 }
 
