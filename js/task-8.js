@@ -15,7 +15,7 @@ function createBoxes(amount) {
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement("div");
     boxesRef.appendChild(box);
-    box.style.backgroundColor = randColor();
+    box.style.backgroundColor = get_rand_color();
     size += 10;
     box.style.width = size + "px";
     box.style.height = size + "px";
@@ -29,9 +29,10 @@ function destroyBoxes() {
   }
 }
 
-function randColor() {
-  let r = Math.floor(Math.random() * 256);
-  let g = Math.floor(Math.random() * 256);
-  let b = Math.floor(Math.random() * 256);
-  return "#" + r.toString(16) + g.toString(16) + b.toString(16);
+function get_rand_color() {
+  var color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
+  while (color.length < 6) {
+    color = "0" + color;
+  }
+  return "#" + color;
 }
