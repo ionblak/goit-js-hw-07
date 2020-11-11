@@ -1,14 +1,19 @@
 const inputRef = document.querySelector("#validation-input");
-const inputMinLength = Number(inputRef.dataset.length);
+const inputMinLength = inputRef.dataset.length;
 
 function checksLengthValue(event) {
   if (event.target.value.length >= inputMinLength) {
-    inputRef.classList.add("valid");
     inputRef.classList.remove("invalid");
+    inputRef.classList.toggle("valid");
   } else {
-    inputRef.classList.remove("valid");
     inputRef.classList.add("invalid");
   }
 }
 
+function clearInput() {
+  inputRef.value = "";
+  inputRef.classList.remove("valid", "invalid");
+}
+
 inputRef.addEventListener("blur", checksLengthValue);
+inputRef.addEventListener("click", clearInput);
